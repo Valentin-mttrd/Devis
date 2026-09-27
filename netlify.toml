@@ -1,0 +1,13 @@
+# Static site, no build step: public/ is published as is.
+# Access is private — see netlify/edge-functions/auth.ts.
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Cache-Control = "private, no-cache"
